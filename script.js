@@ -1,6 +1,7 @@
 const taskInput = document.getElementById('task-input');
 const addTaskBtn = document.getElementById('add-task-btn');
 const taskList = document.getElementById('task-list');   
+const taskList = document.getElementById('Add task');   
 
 
 addTaskBtn.addEventListener('click',   
@@ -57,3 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
     // Other initialization code
 });
+function addTask() {
+    const taskText = taskInput.value;
+    if (taskText === '') {
+        alert('Please enter a task.');
+        return;
+    }
+
+    const newTask = document.createElement('li');
+    newTask.textContent   
+ = taskText;
+
+    // Add more task management logic here (e.g., complete, delete buttons)
+
+    taskList.appendChild(newTask);
+
+    taskInput.value = '';
+}
