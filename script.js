@@ -190,3 +190,39 @@ addButton.addEventListener('click', () => {
 
     taskInput.value = '';
 });
+const taskInput = document.getElementById('task-input');
+const addButton = document.getElementById('add-task-btn');
+const taskList = document.getElementById('task-list');
+
+addButton.addEventListener('click', () => {
+    const taskText = taskInput.value.trim();
+    if (taskText   
+ === '') {
+        alert('Please enter a task.');
+        return;
+    }
+
+    const newTask = document.createElement('li');
+    newTask.textContent   
+ = taskText;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.classList.add('remove-btn');
+    removeBtn.addEventListener('click',   
+  
+ () => {
+        newTask.remove();
+    });
+
+    newTask.appendChild(removeBtn);
+    taskList.appendChild(newTask);
+
+    taskInput.value = '';
+});
+
+taskInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        addButton.click();
+    }
+});
