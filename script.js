@@ -34,3 +34,6 @@ addTaskBtn.addEventListener('click',  
 
     taskInput.value = '';
 });
+addTaskBtn.addEventListener('click', () => {
+    // Code to add a new task to the list
+});
