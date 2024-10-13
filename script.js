@@ -134,3 +134,30 @@ addButton.addEventListener('click', () => {
     taskInput.value   
  = '';
 });
+const taskInput = document.getElementById('task-input');
+const addButton = document.getElementById('add-task-btn');
+const taskList = document.getElementById('task-list');
+
+addButton.addEventListener('click', () => {
+    const taskText = taskInput.value.trim(); // Trim leading and trailing whitespace
+    if (taskText === '') {
+        alert('Please enter a task.');
+        return;
+    }
+
+    const newTask = document.createElement('li');
+    newTask.textContent = taskText;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';   
+
+    deleteBtn.addEventListener('click', () => {
+        newTask.remove();
+    });
+
+    newTask.appendChild(deleteBtn);
+    taskList.appendChild(newTask);
+
+    taskInput.value   
+ = '';
+});
